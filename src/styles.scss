@@ -1,0 +1,37 @@
+/* Base */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+*:focus {
+    outline: none;
+}
+
+html {
+    // this defines what is 1 rem
+    font-size: 62.5%; /* (10px/16px)=> root font-size = 10px */
+}
+
+body {
+    box-sizing: border-box;
+}
+
+h1 { margin: 0; }
+
+.container {
+    margin: 0 auto;
+}
+
+
+/* Typography */
+
+body {
+    font-family: Oswald, Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+}
