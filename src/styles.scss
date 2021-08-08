@@ -21,7 +21,7 @@ body {
     box-sizing: border-box;
 }
 
-h1 { margin: 0; }
+h1, h2, h3 { margin: 0; }
 
 .container {
     margin: 0 auto;
@@ -34,4 +34,23 @@ body {
     font-family: Oswald, Arial, Helvetica, sans-serif;
     font-weight: 300;
     text-rendering: optimizeLegibility;
+}
+
+
+/* Utilities */
+
+.visible { display: inline-block; }
+.hidden { display: hidden; }
+
+.flex-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+/* Mixins */
+@mixin bordered {
+    padding: .5rem;
+    border: 1px solid #ccc;
+    border-radius: .5rem;
 }

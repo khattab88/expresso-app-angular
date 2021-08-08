@@ -1,0 +1,36 @@
+.heroes {
+    width: 40%;
+    padding: .5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    float: left;
+
+    &__title {
+        text-decoration: underline;
+        margin-bottom: 1rem;
+    }
+
+    &__list {
+        width: 25%;
+    }
+
+    &__item {
+        padding-left: 1rem;
+        font-size: 1.75rem;
+        cursor: pointer;
+        // transition: all .5s;
+
+        &:hover {
+            color: #333;
+            font-weight: 600;
+            transform: scale(1.1);
+            text-decoration: underline;
+        }
+
+        &--selected {
+            font-weight: 600;
+            transform: scale(1.1);
+        }
+    }
+}
