@@ -13,6 +13,7 @@ import { MessagesService } from '../messages/messages.service';
 export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
   selectedHero?: Hero;
+  active: boolean = false;
 
   constructor(private heroService: HeroService, private messagesService: MessagesService) {
    }
@@ -39,6 +40,10 @@ export class HeroesComponent implements OnInit {
   delete(hero: Hero): void {
     this.heroes = this.heroes.filter(h => h !== hero);
     this.heroService.deleteHero(hero.id).subscribe();
+  }
+
+  onTestClicked(event: any) {
+    console.log(event.target);
   }
 
 }

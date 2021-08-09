@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HeroFormComponent } from './hero-form/hero-form.component';
     MessagesComponent,
     DashboardComponent,
     HeroSearchComponent,
-    HeroFormComponent
+    HeroFormComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
