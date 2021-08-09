@@ -7,5 +7,8 @@
     <div class="hero__field"><span>id: </span>{{hero.id}}</div>
     <div class="hero__field"><span>name: </span>{{hero.name}}</div>
 
-    <button (click)="goBack()">go back</button>
+    <div class="hero__footer">
+        <button class="button" (click)="goBack()">Back</button>
+        <button class="button" (click)="save()">Save</button>
+    </div>
 </div>

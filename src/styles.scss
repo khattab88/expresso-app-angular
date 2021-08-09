@@ -37,6 +37,14 @@ body {
 }
 
 
+/* Varaibles */
+:root {
+    --main-color: #009a9a;
+    --font-color: #323232;
+    --font-color-lite: #e8e8e8;
+}
+
+
 /* Utilities */
 
 .visible { display: inline-block; }
@@ -53,4 +61,13 @@ body {
     padding: .5rem;
     border: 1px solid #ccc;
     border-radius: .5rem;
+}
+
+/* Components */
+.button {
+    margin: .5rem;
+    padding: .5rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
 }

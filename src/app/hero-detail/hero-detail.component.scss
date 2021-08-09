@@ -20,4 +20,16 @@
             font-weight: 600;
         }
     }
+
+    &__footer {
+        margin-top: .5rem;
+        width: 10rem;
+        display: flex;
+        justify-content: flex-end;
+
+        button:last-child {
+            background-color: var(--main-color);
+            color: var(--font-color-lite);
+        }
+    }
 }
