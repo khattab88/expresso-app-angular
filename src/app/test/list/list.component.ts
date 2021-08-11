@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges, ViewEncapsulation, DoCheck } from '@angular/core';
 
 import { Todo } from '../todo.model';
 
@@ -8,17 +8,30 @@ import { Todo } from '../todo.model';
   styleUrls: ['./list.component.scss'],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, OnChanges {
   items: Todo[] = [];
 
-  constructor() { }
+  constructor() {
+    console.log("constructor called");
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("ngOnChanges called");
+    console.log(changes);
+  }
 
   ngOnInit(): void {
+    console.log("ngOnInit called")
+
     this.items = [
       new Todo(1, "item 1"),
       new Todo(2, "item 2", true),
       new Todo(3, "item 3", true),
     ];
+  }
+
+  ngDoCheck() {
+    console.log("ngDoCheck called");
   }
 
   onItemClicked(value: Todo) {
