@@ -8,7 +8,12 @@ import { TestComponent } from './test/test.component';
 
 import { RecipeAppComponent } from './angular-course/recipe-app/app.component';
 import { RecipeHeaderComponent } from './angular-course/recipe-app/header/header.component';
-import { RecipeListComponent } from './angular-course/recipe-app/list/list.component';
+import { RecipeListComponent } from './angular-course/recipe-app/recipes/list/list.component';
+import { RecipeDetailComponent } from './angular-course/recipe-app/recipes/detail/detail.component';
+import { RecipeListItemComponent } from './angular-course/recipe-app/recipes/list/list-item/list-item.component';
+import { RecipeShoppingListComponent } from './angular-course/recipe-app/shopping-list/shopping-list.component';
+import { RecipeShoppingListEditorComponent } from './angular-course/recipe-app/shopping-list/editor/editor.component';
+import { RecipesComponent } from './angular-course/recipe-app/recipes/recipes.component';
 
 
 @NgModule({
@@ -18,6 +23,11 @@ import { RecipeListComponent } from './angular-course/recipe-app/list/list.compo
     RecipeHeaderComponent,
     RecipeAppComponent,
     RecipeListComponent,
+    RecipeDetailComponent,
+    RecipeListItemComponent,
+    RecipeShoppingListComponent,
+    RecipeShoppingListEditorComponent,
+    RecipesComponent,
   ],
   imports: [
     BrowserModule,
