@@ -8,7 +8,7 @@ import { Todo } from '../../todo.model';
   styleUrls: ['./item.component.scss']
 })
 export class ItemComponent implements OnInit {
-  @Input() item: Todo;
+  @Input('todo') item: Todo;
   @Output() itemClickEvent = new EventEmitter<string>();
 
   constructor() { }
