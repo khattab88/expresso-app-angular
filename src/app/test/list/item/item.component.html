@@ -1,1 +1,9 @@
-<p style="cursor: pointer;" [id]="item.id" (click)="onItemClicked(item.name)">{{ item.name }} is {{ item.done }}</p>
+<div class="row">
+    <div class="col-xs-2">
+        <p style="cursor: pointer;" [id]="item.id" (click)="onItemClicked(item)">
+            {{ item.name }} is {{ item.done }}
+
+            <a onclick="alert('clicked!')" style="float: right;">Delete</a>
+        </p>
+    </div>
+</div>

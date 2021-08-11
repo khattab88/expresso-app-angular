@@ -1,3 +1,7 @@
+<app-input (itemCreatedEvent)="onItemCreated($event)"></app-input>
+
 <ul>
-    <app-item *ngFor="let item of items" [todo]="item" (itemClickEvent)="itemClicked($event)"></app-item>
+    <app-item *ngFor="let item of items" [todo]="item" 
+              (itemClickedEvent)="onItemClicked($event)">
+    </app-item>
 </ul>

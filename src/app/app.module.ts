@@ -16,6 +16,7 @@ import { RecipeShoppingListEditorComponent } from './angular-course/recipe-app/s
 import { RecipesComponent } from './angular-course/recipe-app/recipes/recipes.component';
 import { ListComponent } from './test/list/list.component';
 import { ItemComponent } from './test/list/item/item.component';
+import { InputComponent } from './test/list/input/input.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { ItemComponent } from './test/list/item/item.component';
     RecipesComponent,
     ListComponent,
     ItemComponent,
+    InputComponent,
   ],
   imports: [
     BrowserModule,

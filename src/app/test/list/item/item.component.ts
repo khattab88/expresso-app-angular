@@ -9,15 +9,15 @@ import { Todo } from '../../todo.model';
 })
 export class ItemComponent implements OnInit {
   @Input('todo') item: Todo;
-  @Output() itemClickEvent = new EventEmitter<string>();
+  @Output() itemClickedEvent = new EventEmitter<Todo>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onItemClicked(value: string) {
-    this.itemClickEvent.emit(value);
+  onItemClicked(value: Todo) {
+    this.itemClickedEvent.emit(value);
   }
 
 }
