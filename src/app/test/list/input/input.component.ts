@@ -9,6 +9,7 @@ export class InputComponent implements OnInit {
   name: string;
 
   @Output() itemCreatedEvent = new EventEmitter<string>();
+  @Output() itemDeletedEvent = new EventEmitter<string>();
 
   constructor() { }
 
@@ -19,6 +20,12 @@ export class InputComponent implements OnInit {
     if(!value) return;
 
     this.itemCreatedEvent.emit(value);
+  }
+
+  onItemDeleted(id: string) {
+    if(!id) return;
+
+    this.itemDeletedEvent.emit(id);
   }
 
 }
