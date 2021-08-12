@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-odd',
+  selector: 'game-control-odd',
   templateUrl: './odd.component.html',
   styleUrls: ['./odd.component.scss']
 })

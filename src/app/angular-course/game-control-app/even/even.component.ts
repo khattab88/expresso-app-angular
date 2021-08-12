@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-even',
+  selector: 'game-control-even',
   templateUrl: './even.component.html',
   styleUrls: ['./even.component.scss']
 })
