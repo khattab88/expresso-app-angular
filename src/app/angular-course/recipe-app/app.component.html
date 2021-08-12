@@ -1,11 +1,11 @@
 <div class="recipe-app">
-    <recipe-header></recipe-header>
+    <recipe-header (viewChanged)="onViewChanged($event)"></recipe-header>
 
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <recipes></recipes>
-                <recipe-shopping-list></recipe-shopping-list>
+                <recipes *ngIf="currentView === 'recipes'"></recipes>
+                <recipe-shopping-list *ngIf="currentView !== 'recipes'"></recipe-shopping-list>
             </div>
         </div>
     </div>
