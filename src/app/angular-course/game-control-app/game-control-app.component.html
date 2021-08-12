@@ -4,4 +4,10 @@
             <game-control (intervalFired)="onIntervalFired($event)"></game-control>
         </div>
     </div>
+    <div class="row">
+        <div class="col-xs-4">
+            <game-control-odd *ngFor="let odd of oddNumbers" [number]="odd"></game-control-odd>
+            <game-control-even *ngFor="let even of evenNumbers" [number]="even"></game-control-even>
+        </div>
+    </div>
 </div>
