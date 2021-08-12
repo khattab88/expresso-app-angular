@@ -17,6 +17,10 @@ import { RecipesComponent } from './angular-course/recipe-app/recipes/recipes.co
 import { ListComponent } from './test/list/list.component';
 import { ItemComponent } from './test/list/item/item.component';
 import { InputComponent } from './test/list/input/input.component';
+import { GameControlAppComponent } from './angular-course/game-control-app/game-control-app.component';
+import { GameControlComponent } from './angular-course/game-control-app/game-control/game-control.component';
+import { OddComponent } from './angular-course/game-control-app/odd/odd.component';
+import { EvenComponent } from './angular-course/game-control-app/even/even.component';
 
 
 @NgModule({
@@ -34,6 +38,10 @@ import { InputComponent } from './test/list/input/input.component';
     ListComponent,
     ItemComponent,
     InputComponent,
+    GameControlAppComponent,
+    GameControlComponent,
+    OddComponent,
+    EvenComponent,
   ],
   imports: [
     BrowserModule,
