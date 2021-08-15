@@ -20,4 +20,10 @@ export class RecipeShoppingListComponent implements OnInit {
     ];
   }
 
+  onIngredientAdded(ingredient: Ingredient) {
+    if(!ingredient) return;
+
+    this.ingredients.push(ingredient);
+  }
+
 }
