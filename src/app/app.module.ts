@@ -27,6 +27,7 @@ import { BetterHighlightDirective } from './angular-course/directives/better-hig
 import { UnlessDirective } from './angular-course/directives/unless/unless.directive';
 import { DropdownDirective } from './angular-course/recipe-app/shared/dropdown.directive';
 import { LogService } from './angular-course/services/log.service';
+import { RecipeService } from './angular-course/recipe-app/shared/services/recipe.service';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { LogService } from './angular-course/services/log.service';
     FormsModule,
   ],
   providers: [
-    LogService
+    LogService,
+    RecipeService
   ],
   bootstrap: [AppComponent]
 })
