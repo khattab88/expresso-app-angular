@@ -7,10 +7,10 @@ import { Recipe } from '../../recipes/recipe.model';
 })
 export class RecipeService {
 
-  constructor() { }
+  recipes: Recipe[] = [];
 
-  getRecipes(): Observable<Recipe[]> {
-    const recipes = [
+  constructor() {
+    this.recipes = [
       new Recipe("Recipe 1", "this is recipe 1",
         "https://p1.pxfuel.com/preview/4/17/111/recipe-comisa-healthy-tomato.jpg"),
       new Recipe("Recipe 2", "this is recipe 2",
@@ -18,7 +18,10 @@ export class RecipeService {
       new Recipe("Recipe 3", "this is recipe 3",
         "https://i0.hippopx.com/photos/195/737/99/spring-roll-spring-roll-materials-spring-roll-ingredient-materials-preview.jpg")
     ];
-
-    return of(recipes);
   }
+
+  getRecipes(): Observable<Recipe[]> {
+    return of(this.recipes);
+  }
+
 }
