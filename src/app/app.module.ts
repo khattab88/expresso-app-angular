@@ -24,6 +24,7 @@ import { EvenComponent } from './angular-course/game-control-app/even/even.compo
 
 import { BasicHighlightDirective } from './angular-course/directives/basic-highlight/basic-highlight.directive';
 import { BetterHighlightDirective } from './angular-course/directives/better-highlight/better-highlight.directive';
+import { UnlessDirective } from './angular-course/directives/unless/unless.directive';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { BetterHighlightDirective } from './angular-course/directives/better-hig
     OddComponent,
     EvenComponent,
     BasicHighlightDirective,
-    BetterHighlightDirective
+    BetterHighlightDirective,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,
