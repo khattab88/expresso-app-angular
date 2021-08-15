@@ -10,3 +10,9 @@
 <p appBetterHighlight [defaultColor]="'yellow'" [defaultHighlightColor]="'red'" style="width: 15rem;">Styled with better highlight directive</p>
 
 <p *appUnless="isLoading">this is viewd by unless directive</p>
+
+<div [ngSwitch]="count">
+    <p *ngSwitchCase="5">this is item no 5</p>
+    <p *ngSwitchCase="10">this is item no 10</p>
+    <p *ngSwitchDefault>this is item no 1</p>
+</div>

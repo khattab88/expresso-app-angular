@@ -11,6 +11,7 @@ import { Todo } from '../todo.model';
 export class ListComponent implements OnInit, OnChanges {
   items: Todo[] = [];
   isLoading: boolean = false;
+  count: number = 7;
 
   constructor() {
     console.log("constructor called");
