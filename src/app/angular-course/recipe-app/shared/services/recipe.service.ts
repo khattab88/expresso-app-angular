@@ -24,4 +24,10 @@ export class RecipeService {
     return of(this.recipes);
   }
 
+  
+  addRecipe(recipe: Recipe): void {
+    if(!recipe) return;
+
+    this.recipes.push(recipe);
+  }
 }
