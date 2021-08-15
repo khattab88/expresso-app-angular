@@ -16,7 +16,7 @@ export class RecipeService {
       new Recipe("Recipe 2", "this is recipe 2",
         "https://i0.hippopx.com/photos/195/737/99/spring-roll-spring-roll-materials-spring-roll-ingredient-materials-preview.jpg"),
       new Recipe("Recipe 3", "this is recipe 3",
-        "https://i0.hippopx.com/photos/195/737/99/spring-roll-spring-roll-materials-spring-roll-ingredient-materials-preview.jpg")
+        "https://cdn.loveandlemons.com/wp-content/uploads/2020/03/bean-recipes-1.jpg")
     ];
   }
 

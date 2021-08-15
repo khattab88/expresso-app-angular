@@ -1,34 +1,32 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { RecipeService } from '../../shared/services/recipe.service';
 
 import { Recipe } from '../recipe.model';
+import { RecipeService } from '../../shared/services/recipe.service';
+import { LogService } from 'src/app/angular-course/services/log.service';
 
 @Component({
   selector: 'recipe-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
   providers: [
-    RecipeService
+    LogService
   ]
 })
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = [];
   @Output() recipeSelected = new EventEmitter<Recipe>();
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(private logService: LogService,
+              private recipeService: RecipeService) { }
 
   ngOnInit(): void {
-    // this.recipes = [
-    //   new Recipe("Recipe 1", "this is recipe 1", 
-    //              "https://p1.pxfuel.com/preview/4/17/111/recipe-comisa-healthy-tomato.jpg"),
-    //   new Recipe("Recipe 2", "this is recipe 2", 
-    //              "https://i0.hippopx.com/photos/195/737/99/spring-roll-spring-roll-materials-spring-roll-ingredient-materials-preview.jpg")
-    // ];
-
-    this.recipeService.getRecipes().subscribe(recipes => this.recipes = recipes);
+    this.recipeService.getRecipes()
+          .subscribe(recipes => this.recipes = recipes);
   }
 
   onRecipeSelected(recipe: Recipe): void {
+    this.logService.logToConsole("Recipe selected: " + recipe.name);
+
     this.recipeSelected.emit(recipe);
   }
 
