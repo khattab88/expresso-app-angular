@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
@@ -31,6 +32,13 @@ import { RecipeService } from './angular-course/recipe-app/shared/services/recip
 import { ShoppingListService } from './angular-course/recipe-app/shared/services/shopping-list.service';
 
 
+
+const appRoutes: Routes = [
+  { path: '', component: RecipeListComponent },
+  { path: 'recipes', component: RecipeListComponent },
+  { path: 'shopping-list', component: RecipeShoppingListComponent }
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +66,7 @@ import { ShoppingListService } from './angular-course/recipe-app/shared/services
   imports: [
     BrowserModule,
     FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     LogService,
