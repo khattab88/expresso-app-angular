@@ -33,8 +33,10 @@ export class RecipeListComponent implements OnInit {
   }
 
   navigate() {
-    this.router.navigate(['shopping-list']);
+    // this.router.navigate(['/shopping-list']);
     // this.router.navigate(['shopping-list', { relativeTo: this.route }]);
+
+    this.router.navigate(['/recipes/recipe1']);
   }
 
 }
