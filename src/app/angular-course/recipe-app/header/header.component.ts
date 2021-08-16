@@ -17,7 +17,7 @@ export class RecipeHeaderComponent implements OnInit {
   }
 
   onSelect(viewName: string): void {
-    this.logService.logToConsole("view changed to " + viewName);
+    // this.logService.logToConsole("view changed to " + viewName);
 
     this.viewChanged.emit(viewName);
   }
