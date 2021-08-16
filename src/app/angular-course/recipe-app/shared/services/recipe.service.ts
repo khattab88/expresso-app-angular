@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+
 import { Recipe } from '../../recipes/recipe.model';
 
 @Injectable({
@@ -7,7 +8,7 @@ import { Recipe } from '../../recipes/recipe.model';
 })
 export class RecipeService {
 
-  recipes: Recipe[] = [];
+  private recipes: Recipe[] = [];
 
   constructor() {
     this.recipes = [

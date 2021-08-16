@@ -28,6 +28,7 @@ import { UnlessDirective } from './angular-course/directives/unless/unless.direc
 import { DropdownDirective } from './angular-course/recipe-app/shared/dropdown.directive';
 import { LogService } from './angular-course/services/log.service';
 import { RecipeService } from './angular-course/recipe-app/shared/services/recipe.service';
+import { ShoppingListService } from './angular-course/recipe-app/shared/services/shopping-list.service';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { RecipeService } from './angular-course/recipe-app/shared/services/recip
   ],
   providers: [
     LogService,
-    RecipeService
+    RecipeService,
+    ShoppingListService
   ],
   bootstrap: [AppComponent]
 })
