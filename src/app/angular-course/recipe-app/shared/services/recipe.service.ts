@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 
 import { Recipe } from '../../recipes/recipe.model';
 import { Ingredient } from '../Ingredient.model';
+import { ShoppingListService } from './shopping-list.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class RecipeService {
 
   private recipes: Recipe[] = [];
 
-  constructor() {
+  constructor(private shoppingListService: ShoppingListService) {
+
     this.recipes = [
       new Recipe("Recipe 1", "this is recipe 1",
         "https://p1.pxfuel.com/preview/4/17/111/recipe-comisa-healthy-tomato.jpg",
@@ -45,5 +47,9 @@ export class RecipeService {
     if (!recipe) return;
 
     this.recipes.push(recipe);
+  }
+
+  addIngredientsToShoppingList(ingredients: Ingredient[]): void {
+    this.shoppingListService.addIngredients(ingredients);
   }
 }
