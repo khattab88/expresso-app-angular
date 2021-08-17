@@ -34,7 +34,7 @@ import { ShoppingListService } from './angular-course/recipe-app/shared/services
 
 
 const appRoutes: Routes = [
-  { path: '', component: RecipeListComponent },
+  { path: '', component: RecipesComponent },
   {
     path: 'recipes', component: RecipeListComponent, 
     children: [
