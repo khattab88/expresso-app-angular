@@ -16,7 +16,10 @@ const appRoutes: Routes = [
       { path: ':name', component: RecipeDetailComponent }, // Invalid Route
     ]
   },
-  { path: 'shopping-list', canActivate: [AuthGuard], component: RecipeShoppingListComponent },
+  { path: 'shopping-list', 
+    // canActivate: [AuthGuard], 
+    canActivateChild: [AuthGuard],
+    component: RecipeShoppingListComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: '/not-found' }
 ];
