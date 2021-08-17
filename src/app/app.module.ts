@@ -30,7 +30,7 @@ import { DropdownDirective } from './angular-course/recipe-app/shared/dropdown.d
 import { LogService } from './angular-course/services/log.service';
 import { RecipeService } from './angular-course/recipe-app/shared/services/recipe.service';
 import { ShoppingListService } from './angular-course/recipe-app/shared/services/shopping-list.service';
-
+import { NotFoundComponent } from './angular-course/recipe-app/not-found/not-found.component';
 
 
 const appRoutes: Routes = [
@@ -41,7 +41,9 @@ const appRoutes: Routes = [
       { path: ':name', component: RecipeDetailComponent },
     ]
   },
-  { path: 'shopping-list', component: RecipeShoppingListComponent }
+  { path: 'shopping-list', component: RecipeShoppingListComponent },
+  { path: 'not-found', component: NotFoundComponent },
+  { path: '**', redirectTo: '/not-found' }
 ];
 
 @NgModule({
@@ -66,7 +68,8 @@ const appRoutes: Routes = [
     BasicHighlightDirective,
     BetterHighlightDirective,
     UnlessDirective,
-    DropdownDirective
+    DropdownDirective,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
