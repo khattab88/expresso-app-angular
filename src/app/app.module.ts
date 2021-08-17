@@ -35,6 +35,7 @@ import { ShoppingListService } from './angular-course/recipe-app/shared/services
 import { NotFoundComponent } from './angular-course/recipe-app/not-found/not-found.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard.service';
+import { ErrorPageComponent } from './angular-course/recipe-app/error-page/error-page.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { AuthGuard } from './auth-guard.service';
     BetterHighlightDirective,
     UnlessDirective,
     DropdownDirective,
-    NotFoundComponent
+    NotFoundComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
