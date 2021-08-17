@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 
@@ -33,19 +35,6 @@ import { ShoppingListService } from './angular-course/recipe-app/shared/services
 import { NotFoundComponent } from './angular-course/recipe-app/not-found/not-found.component';
 
 
-const appRoutes: Routes = [
-  { path: '', component: RecipesComponent },
-  {
-    path: 'recipes', component: RecipeListComponent, 
-    children: [
-      { path: ':name', component: RecipeDetailComponent },
-    ]
-  },
-  { path: 'shopping-list', component: RecipeShoppingListComponent },
-  { path: 'not-found', component: NotFoundComponent },
-  { path: '**', redirectTo: '/not-found' }
-];
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +63,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [
     LogService,
