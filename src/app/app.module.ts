@@ -33,6 +33,8 @@ import { LogService } from './angular-course/services/log.service';
 import { RecipeService } from './angular-course/recipe-app/shared/services/recipe.service';
 import { ShoppingListService } from './angular-course/recipe-app/shared/services/shopping-list.service';
 import { NotFoundComponent } from './angular-course/recipe-app/not-found/not-found.component';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth-guard.service';
 
 
 @NgModule({
@@ -68,7 +70,9 @@ import { NotFoundComponent } from './angular-course/recipe-app/not-found/not-fou
   providers: [
     LogService,
     RecipeService,
-    ShoppingListService
+    ShoppingListService,
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

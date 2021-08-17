@@ -6,6 +6,7 @@ import { RecipeListComponent } from './angular-course/recipe-app/recipes/list/li
 
 import { RecipesComponent } from './angular-course/recipe-app/recipes/recipes.component';
 import { RecipeShoppingListComponent } from './angular-course/recipe-app/shopping-list/shopping-list.component';
+import { AuthGuard } from './auth-guard.service';
 
 const appRoutes: Routes = [
   { path: '', component: RecipesComponent },
@@ -15,7 +16,7 @@ const appRoutes: Routes = [
       { path: ':name', component: RecipeDetailComponent }, // Invalid Route
     ]
   },
-  { path: 'shopping-list', component: RecipeShoppingListComponent },
+  { path: 'shopping-list', canActivate: [AuthGuard], component: RecipeShoppingListComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: '/not-found' }
 ];
