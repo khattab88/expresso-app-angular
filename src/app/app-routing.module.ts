@@ -11,7 +11,7 @@ import { RecipeShoppingListComponent } from './angular-course/recipe-app/shoppin
 import { AuthGuard } from './auth-guard.service';
 
 const appRoutes: Routes = [
-  { path: "", component: RecipeListComponent },
+  { path: "", component: RecipesComponent },
   //{ path: '', redirectTo: '/recipes', pathMatch: 'full' },
   {
     path: 'recipes', component: RecipeListComponent, 
