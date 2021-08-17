@@ -17,8 +17,10 @@ export class RecipeDetailComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const name = this.route.snapshot.params["name"];
-    console.log(`${name} detail`);
+    // const name = this.route.snapshot.params["name"];
+    // console.log(`${name} detail`);
+
+    console.log(this.recipe);
   }
 
   onAddToShoppingList() {

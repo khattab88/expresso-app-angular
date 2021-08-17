@@ -27,7 +27,7 @@ export class RecipeListComponent implements OnInit {
   }
 
   onRecipeSelected(recipe: Recipe): void {
-    this.logService.logToConsole("Recipe selected: " + recipe.name);
+    // this.logService.logToConsole("Recipe selected: " + recipe.name);
 
     this.recipeSelected.emit(recipe);
   }
