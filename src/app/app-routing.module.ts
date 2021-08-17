@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RecipeAppComponent } from './angular-course/recipe-app/app.component';
 import { ErrorPageComponent } from './angular-course/recipe-app/error-page/error-page.component';
 import { NotFoundComponent } from './angular-course/recipe-app/not-found/not-found.component';
 import { RecipeDetailComponent } from './angular-course/recipe-app/recipes/detail/detail.component';
@@ -10,7 +11,8 @@ import { RecipeShoppingListComponent } from './angular-course/recipe-app/shoppin
 import { AuthGuard } from './auth-guard.service';
 
 const appRoutes: Routes = [
-  { path: '', component: RecipesComponent },
+  { path: "", component: RecipeListComponent },
+  //{ path: '', redirectTo: '/recipes', pathMatch: 'full' },
   {
     path: 'recipes', component: RecipeListComponent, 
     children: [
@@ -20,7 +22,8 @@ const appRoutes: Routes = [
   { path: 'shopping-list', 
     // canActivate: [AuthGuard], 
     canActivateChild: [AuthGuard],
-    component: RecipeShoppingListComponent },
+    component: RecipeShoppingListComponent 
+  },
   { path: 'not-found', component: NotFoundComponent },
   { path: 'error', component: ErrorPageComponent, data: { message: "Something wrong happened!" } },
   { path: '**', redirectTo: '/not-found' }
@@ -28,9 +31,10 @@ const appRoutes: Routes = [
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes, {
-    useHash: true
-  })],
+  imports: [
+    RouterModule.forRoot(appRoutes, { useHash: true })
+    // RouterModule.forRoot(appRoutes, { useHash: true }) // For Production Use
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
