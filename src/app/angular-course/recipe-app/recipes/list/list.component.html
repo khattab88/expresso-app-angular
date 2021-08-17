@@ -10,8 +10,7 @@
 <div class="row">
     <div class="col-md-8">
         <recipe-list-item 
-            *ngFor="let recipe of recipes" [recipe]="recipe"
-            (recipeClicked)="onRecipeSelected(recipe)">
+            *ngFor="let recipe of recipes" [recipe]="recipe">
         </recipe-list-item>
     </div>
 </div>

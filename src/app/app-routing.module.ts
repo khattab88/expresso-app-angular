@@ -7,6 +7,7 @@ import { RecipeDetailComponent } from './angular-course/recipe-app/recipes/detai
 import { RecipeListComponent } from './angular-course/recipe-app/recipes/list/list.component';
 
 import { RecipesComponent } from './angular-course/recipe-app/recipes/recipes.component';
+import { RecipeStartComponent } from './angular-course/recipe-app/recipes/start/start.component';
 import { RecipeShoppingListComponent } from './angular-course/recipe-app/shopping-list/shopping-list.component';
 import { AuthGuard } from './auth-guard.service';
 
@@ -14,9 +15,10 @@ const appRoutes: Routes = [
   { path: "", component: RecipesComponent },
   //{ path: '', redirectTo: '/recipes', pathMatch: 'full' },
   {
-    path: 'recipes', component: RecipeListComponent, 
+    path: 'recipes', component: RecipesComponent, 
     children: [
-      { path: ':name', component: RecipeDetailComponent }, // Invalid Route
+      { path: '', component: RecipeStartComponent },
+      { path: ':id', component: RecipeDetailComponent }
     ]
   },
   { path: 'shopping-list', 

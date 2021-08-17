@@ -26,12 +26,6 @@ export class RecipeListComponent implements OnInit {
           .subscribe(recipes => this.recipes = recipes);
   }
 
-  onRecipeSelected(recipe: Recipe): void {
-    // this.logService.logToConsole("Recipe selected: " + recipe.name);
-
-    this.recipeSelected.emit(recipe);
-  }
-
   navigate() {
     // this.router.navigate(['/shopping-list']);
     // this.router.navigate(['shopping-list', { relativeTo: this.route }]);

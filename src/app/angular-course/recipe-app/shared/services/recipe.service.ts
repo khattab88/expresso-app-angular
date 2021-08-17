@@ -42,6 +42,9 @@ export class RecipeService {
     return of(this.recipes);
   }
 
+  getRecipe(index: number) : Observable<Recipe> {
+    return of(this.recipes[index]);
+  }
 
   addRecipe(recipe: Recipe): void {
     if (!recipe) return;

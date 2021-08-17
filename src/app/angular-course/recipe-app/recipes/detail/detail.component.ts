@@ -11,16 +11,23 @@ import { RecipeService } from '../../shared/services/recipe.service';
   styleUrls: ['./detail.component.scss']
 })
 export class RecipeDetailComponent implements OnInit {
-  @Input() recipe: Recipe;
+  id: number;
+  recipe: Recipe;
 
   constructor(private recipeService: RecipeService,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // const name = this.route.snapshot.params["name"];
-    // console.log(`${name} detail`);
-
-    console.log(this.recipe);
+    this.route.params
+      .subscribe((params) => {
+        this.id = +params['id'];
+        
+        this.recipeService.getRecipe(this.id)
+          .subscribe((recipe) => {
+            this.recipe = recipe;
+          });
+      });
+    
   }
 
   onAddToShoppingList() {
