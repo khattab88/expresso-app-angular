@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../../shared/services/recipe.service';
@@ -35,6 +36,32 @@ export class RecipeListComponent implements OnInit {
 
   onNewRecipeClicked() {
     this.router.navigate(["new"], { relativeTo: this.route });
+  }
+
+  test() {
+    var counterObseravble = new Observable(subscriber => {
+      let count = 0;
+
+      setInterval(() => {
+        subscriber.next(count);
+
+        if(count === 3) {
+          subscriber.complete();
+        }
+
+        if(count === 5) {
+          subscriber.error(new Error("Error in counter observable!"));
+        }
+
+        count++;
+      }, 500);
+    });
+
+    var counterSubscribtion = counterObseravble.subscribe(
+      (x) => { console.log(x); },
+      (err) => { console.log(err); },
+      () => { console.log("counter observable completed!") }
+    );
   }
 
 }
