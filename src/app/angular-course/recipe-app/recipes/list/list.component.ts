@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
 
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../../shared/services/recipe.service';
@@ -19,12 +20,12 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   @Output() recipeSelected = new EventEmitter<Recipe>();
 
   constructor(private logService: LogService,
-              private recipeService: RecipeService,
-              private router: Router, private route: ActivatedRoute) { }
+    private recipeService: RecipeService,
+    private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.recipeService.getRecipes()
-          .subscribe(recipes => this.recipes = recipes);
+      .subscribe(recipes => this.recipes = recipes);
   }
 
   navigate() {
@@ -45,11 +46,11 @@ export class RecipeListComponent implements OnInit, OnDestroy {
       setInterval(() => {
         subscriber.next(count);
 
-        if(count === 3) {
+        if (count === 7) {
           subscriber.complete();
         }
 
-        if(count === 5) {
+        if (count === 10) {
           subscriber.error(new Error("Error in counter observable!"));
         }
 
@@ -57,11 +58,22 @@ export class RecipeListComponent implements OnInit, OnDestroy {
       }, 500);
     });
 
-    var counterSubscribtion = counterObseravble.subscribe(
-      (x) => { console.log(x); },
-      (err) => { console.log(err); },
-      () => { console.log("counter observable completed!") }
-    );
+    var counterStringObservable = counterObseravble
+      .pipe(
+        filter((data: any, index) => {
+          return data <= 5;
+        }),
+        map((data) => {
+          return `log no. ${data}`;
+        }));
+
+    var counterSubscribtion =
+      // counterObseravble.subscribe(
+      counterStringObservable.subscribe(
+        (x) => { console.log(x); },
+        (err) => { console.log(err); },
+        () => { console.log("counter observable completed!") }
+      );
   }
 
   ngOnDestroy() {
