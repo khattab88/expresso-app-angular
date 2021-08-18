@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -14,7 +14,7 @@ import { LogService } from 'src/app/angular-course/services/log.service';
     LogService
   ]
 })
-export class RecipeListComponent implements OnInit {
+export class RecipeListComponent implements OnInit, OnDestroy {
   recipes: Recipe[] = [];
   @Output() recipeSelected = new EventEmitter<Recipe>();
 
@@ -62,6 +62,11 @@ export class RecipeListComponent implements OnInit {
       (err) => { console.log(err); },
       () => { console.log("counter observable completed!") }
     );
+  }
+
+  ngOnDestroy() {
+    // cancel subscribtion here
+    // this.counterSubscribtion.unsubscribe();
   }
 
 }
