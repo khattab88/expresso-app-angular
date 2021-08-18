@@ -37,6 +37,7 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard.service';
 import { ErrorPageComponent } from './angular-course/recipe-app/error-page/error-page.component';
 import { RecipeStartComponent } from './angular-course/recipe-app/recipes/start/start.component';
+import { RecipeEditorComponent } from './angular-course/recipe-app/recipes/editor/editor.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { RecipeStartComponent } from './angular-course/recipe-app/recipes/start/
     DropdownDirective,
     NotFoundComponent,
     ErrorPageComponent,
-    RecipeStartComponent
+    RecipeStartComponent,
+    RecipeEditorComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { RecipeAppComponent } from './angular-course/recipe-app/app.component';
 import { ErrorPageComponent } from './angular-course/recipe-app/error-page/error-page.component';
 import { NotFoundComponent } from './angular-course/recipe-app/not-found/not-found.component';
 import { RecipeDetailComponent } from './angular-course/recipe-app/recipes/detail/detail.component';
+import { RecipeEditorComponent } from './angular-course/recipe-app/recipes/editor/editor.component';
 import { RecipeListComponent } from './angular-course/recipe-app/recipes/list/list.component';
 
 import { RecipesComponent } from './angular-course/recipe-app/recipes/recipes.component';
@@ -18,7 +19,9 @@ const appRoutes: Routes = [
     path: 'recipes', component: RecipesComponent, 
     children: [
       { path: '', component: RecipeStartComponent },
-      { path: ':id', component: RecipeDetailComponent }
+      { path: "new", component: RecipeEditorComponent },
+      { path: ':id', component: RecipeDetailComponent },
+      { path: ":id/edit", component: RecipeEditorComponent }
     ]
   },
   { path: 'shopping-list', 
