@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 
 import { Recipe } from '../../recipes/recipe.model';
 import { Ingredient } from '../Ingredient.model';
 import { ShoppingListService } from './shopping-list.service';
+import { LogService } from 'src/app/angular-course/services/log.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,13 @@ import { ShoppingListService } from './shopping-list.service';
 export class RecipeService {
 
   private recipes: Recipe[] = [];
+  private selectedRecipe: Recipe;
 
-  constructor(private shoppingListService: ShoppingListService) {
+  recipesChanged = new Subject<Recipe[]>();
+  recipeSelecetd = new Subject<Recipe>();
+
+  constructor(private shoppingListService: ShoppingListService,
+              private logService: LogService) {
 
     this.recipes = [
       new Recipe("Recipe 1", "this is recipe 1",
@@ -36,20 +42,27 @@ export class RecipeService {
           new Ingredient("salt", 2)
         ])
     ];
+
+    this.recipeSelecetd.subscribe((selected: Recipe) => {
+      this.selectedRecipe = selected;
+      
+      this.logService.logToConsole(`selecetd recipe: ${this.selectedRecipe.name}`);
+    });
   }
 
-  getRecipes(): Observable<Recipe[]> {
-    return of(this.recipes);
+  getRecipes(): Recipe[] {
+    return this.recipes;
   }
 
-  getRecipe(index: number) : Observable<Recipe> {
-    return of(this.recipes[index]);
+  getRecipe(index: number) : Recipe {
+    return this.recipes[index];
   }
 
   addRecipe(recipe: Recipe): void {
     if (!recipe) return;
 
     this.recipes.push(recipe);
+    this.recipesChanged.next(this.recipes);
   }
 
   addIngredientsToShoppingList(ingredients: Ingredient[]): void {

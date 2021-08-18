@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
 import { Recipe } from '../recipe.model';
@@ -17,15 +17,18 @@ import { LogService } from 'src/app/angular-course/services/log.service';
 })
 export class RecipeListComponent implements OnInit, OnDestroy {
   recipes: Recipe[] = [];
-  @Output() recipeSelected = new EventEmitter<Recipe>();
+  // @Output() recipeSelected = new EventEmitter<Recipe>();
+
+  private recipesChangedSubscribtion: Subscription;
 
   constructor(private logService: LogService,
     private recipeService: RecipeService,
     private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.recipeService.getRecipes()
-      .subscribe(recipes => this.recipes = recipes);
+    this.recipes = this.recipeService.getRecipes();
+    this.recipesChangedSubscribtion = this.recipeService.recipesChanged
+      .subscribe((recipes: Recipe[]) => this.recipes = recipes);
   }
 
   navigate() {
@@ -77,8 +80,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    // cancel subscribtion here
-    // this.counterSubscribtion.unsubscribe();
+    this.recipesChangedSubscribtion.unsubscribe();
   }
 
 }
