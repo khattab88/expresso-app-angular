@@ -38,6 +38,7 @@ import { AuthGuard } from './auth-guard.service';
 import { ErrorPageComponent } from './angular-course/recipe-app/error-page/error-page.component';
 import { RecipeStartComponent } from './angular-course/recipe-app/recipes/start/start.component';
 import { RecipeEditorComponent } from './angular-course/recipe-app/recipes/editor/editor.component';
+import { TemplateFormComponent } from './angular-course/forms/template-form/template-form.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { RecipeEditorComponent } from './angular-course/recipe-app/recipes/edito
     NotFoundComponent,
     ErrorPageComponent,
     RecipeStartComponent,
-    RecipeEditorComponent
+    RecipeEditorComponent,
+    TemplateFormComponent
   ],
   imports: [
     BrowserModule,
