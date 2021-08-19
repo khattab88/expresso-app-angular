@@ -11,6 +11,8 @@ export class TemplateFormComponent implements OnInit {
 
   defaultQuestion = "team";
   answer: string = '';
+  genders = ['male', 'female'];
+  selecetdGender = "male";
 
   constructor() { }
 
