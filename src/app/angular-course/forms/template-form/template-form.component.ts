@@ -8,7 +8,9 @@ import { NgForm } from '@angular/forms';
 })
 export class TemplateFormComponent implements OnInit {
   // @ViewChild("userForm") userFor: NgForm;
+
   defaultQuestion = "team";
+  answer: string = '';
 
   constructor() { }
 
