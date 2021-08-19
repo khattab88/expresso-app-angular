@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -39,6 +39,7 @@ import { ErrorPageComponent } from './angular-course/recipe-app/error-page/error
 import { RecipeStartComponent } from './angular-course/recipe-app/recipes/start/start.component';
 import { RecipeEditorComponent } from './angular-course/recipe-app/recipes/editor/editor.component';
 import { TemplateFormComponent } from './angular-course/forms/template-form/template-form.component';
+import { ReactiveFormComponent } from './angular-course/forms/reactive-form/reactive-form.component';
 
 
 @NgModule({
@@ -68,11 +69,13 @@ import { TemplateFormComponent } from './angular-course/forms/template-form/temp
     ErrorPageComponent,
     RecipeStartComponent,
     RecipeEditorComponent,
-    TemplateFormComponent
+    TemplateFormComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [
