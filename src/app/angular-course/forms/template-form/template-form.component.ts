@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./template-form.component.scss']
 })
 export class TemplateFormComponent implements OnInit {
-  // @ViewChild("userForm") userFor: NgForm;
+  @ViewChild("userForm") userForm: NgForm;
 
   genders = ['male', 'female'];
   selecetdGender = "male";
@@ -22,8 +22,13 @@ export class TemplateFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  suggestName(): string {
-    return "SuperName";
+  suggestName() {
+    const suggestedName = "SuperName";
+    this.userForm.form.patchValue({
+      userData: {
+        username: suggestedName
+      }
+    });
   }
 
   onSubmit(userForm: NgForm) {
