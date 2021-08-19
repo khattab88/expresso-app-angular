@@ -25,6 +25,16 @@
                         </label>
                     </div>    
                 </div>
+                <div class="form-group">
+                    <label for="langauge">Language</label>
+                    <div class="checkbox" *ngFor="let language of languages">
+                        <label>
+                            <input type="checkbox" name="language"
+                                   ngModel [value]="language" id="language">
+                            {{ language }}
+                        </label>
+                    </div>
+                </div>
 
                 <p *ngIf="!userData.valid && userData.touched">user data is invalid</p>
             </div>

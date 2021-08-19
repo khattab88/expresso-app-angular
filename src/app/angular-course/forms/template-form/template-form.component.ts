@@ -9,10 +9,13 @@ import { NgForm } from '@angular/forms';
 export class TemplateFormComponent implements OnInit {
   // @ViewChild("userForm") userFor: NgForm;
 
-  defaultQuestion = "team";
-  answer: string = '';
   genders = ['male', 'female'];
   selecetdGender = "male";
+
+  languages = ['arabic', 'english', 'german'];
+
+  defaultQuestion = "team";
+  answer: string = '';
 
   constructor() { }
 
