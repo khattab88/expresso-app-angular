@@ -9,13 +9,21 @@ import { NgForm } from '@angular/forms';
 export class TemplateFormComponent implements OnInit {
   @ViewChild("userForm") userForm: NgForm;
 
+  formSubmitted = false;
+
+  user = {
+    username: "",
+    email: "",
+    selectedGender: "male",
+    selectedLanguage: "",
+    secretQuestion: {
+      question: "team",
+      answer: ""
+    }
+  }
+
   genders = ['male', 'female'];
-  selecetdGender = "male";
-
   languages = ['arabic', 'english', 'german'];
-
-  defaultQuestion = "team";
-  answer: string = '';
 
   constructor() { }
 
@@ -33,6 +41,15 @@ export class TemplateFormComponent implements OnInit {
 
   onSubmit(userForm: NgForm) {
     console.log(userForm);
+
+    this.formSubmitted = true;
+
+    this.user.username = this.userForm.value.userData.username;
+    this.user.email = this.userForm.value.userData.email;
+    this.user.selectedGender = this.userForm.value.userData.gender;
+    this.user.selectedLanguage = this.userForm.value.userData.selectedLanguage;
+    this.user.secretQuestion.question = this.userForm.value.secret;
+    this.user.secretQuestion.answer = this.userForm.value.questionAnswer;
   }
 
 }

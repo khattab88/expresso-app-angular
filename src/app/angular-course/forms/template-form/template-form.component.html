@@ -20,18 +20,18 @@
                     <div class="radio" *ngFor="let gender of genders">
                         <label>
                             <input type="radio" name="gender" required
-                                   [ngModel]="selecetdGender" [value]="gender">
+                                   [ngModel]="user.selectedGender" [value]="gender">
                             {{ gender }}
                         </label>
                     </div>    
                 </div>
                 <div class="form-group">
                     <label for="langauge">Language</label>
-                    <div class="checkbox" *ngFor="let language of languages">
+                    <div class="checkbox" *ngFor="let lang of languages">
                         <label>
                             <input type="checkbox" name="language"
-                                   ngModel [value]="language" id="language">
-                            {{ language }}
+                                   [ngModel] [value]="lang">
+                            {{ lang }}
                         </label>
                     </div>
                 </div>
@@ -42,18 +42,32 @@
             <div class="secretQuestion">
                 <div class="form-group">
                     <label for="secret">Secret Question</label>
-                    <select name="secret" id="secret" class="form-control" [ngModel]="defaultQuestion" name="secret">
+                    <select name="secret" id="secret" class="form-control" [ngModel]="user.secretQuestion.question" name="secret">
                         <option value="team">Your favorite team?</option>
                         <option value="city">Your favorite city?</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <textarea name="questionAnswer" rows="3" class="form-control" [(ngModel)]="answer"></textarea>
+                    <textarea name="questionAnswer" rows="3" class="form-control" [(ngModel)]="user.secretQuestion.answer"></textarea>
                 </div>
-                <p>your answer is {{ answer }}</p>
+                <p>your answer is {{ user.secretQuestion.answer }}</p>
             </div>
 
             <button class="btn btn-primary" type="submit" [disabled]="!userForm.valid">Submit</button>
         </form>
+    </div>
+</div>
+
+<hr>
+
+<div class="row" *ngIf="formSubmitted">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-2">
+        <h3>Your Data</h3>
+        <p>UserName: {{ user.username }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>Gender: {{ user.selectedGender }}</p>
+        <p>Language: {{ user.selectedLanguage }}</p>
+        <p>Secret Question: {{ user.secretQuestion.question }}</p>
+        <p>Answer: {{ user.secretQuestion.answer }}</p>
     </div>
 </div>
