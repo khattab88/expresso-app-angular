@@ -21,4 +21,8 @@ export class ReactiveFormComponent implements OnInit {
     });
   }
 
+  onSubmit() {
+    console.log(this.userForm);
+  }
+
 }
