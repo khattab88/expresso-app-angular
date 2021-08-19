@@ -50,6 +50,8 @@ export class TemplateFormComponent implements OnInit {
     this.user.selectedLanguage = this.userForm.value.userData.selectedLanguage;
     this.user.secretQuestion.question = this.userForm.value.secret;
     this.user.secretQuestion.answer = this.userForm.value.questionAnswer;
+
+    this.userForm.reset();
   }
 
 }
