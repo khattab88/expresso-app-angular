@@ -24,6 +24,20 @@ export class ReactiveFormComponent implements OnInit {
       }),
       'hobbies': new FormArray([])
     });
+
+    /// subscribe to form values changes
+    // this.userForm.valueChanges.subscribe(
+    //   (value) => {
+    //     console.log(value);
+    //   }
+    // );
+
+    // subscribe to form status changes
+    this.userForm.statusChanges.subscribe(
+      (status) => {
+        console.log(status);
+      }
+    );
   }
 
   onSubmit() {
