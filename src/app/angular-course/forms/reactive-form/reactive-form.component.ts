@@ -32,12 +32,18 @@ export class ReactiveFormComponent implements OnInit {
     //   }
     // );
 
-    // subscribe to form status changes
-    this.userForm.statusChanges.subscribe(
-      (status) => {
-        console.log(status);
+    /// subscribe to form status changes
+    // this.userForm.statusChanges.subscribe(
+    //   (status) => {
+    //     console.log(status);
+    //   }
+    // );
+
+    this.userForm.patchValue({
+      'userData': {
+        'username': 'user'
       }
-    );
+    });
   }
 
   onSubmit() {
