@@ -10,13 +10,15 @@ export class ReactiveFormComponent implements OnInit {
   userForm: FormGroup;
 
   genders = ["male", "female"];
+  forbiddenUserName = ["admin"];
 
   constructor() { }
 
   ngOnInit(): void {
     this.userForm = new FormGroup({
       'userData': new FormGroup({
-        'username': new FormControl(null, Validators.required),
+        'username': new FormControl(null, [Validators.required]),
+        // 'username': new FormControl(null, [Validators.required, this.checkForbiddenNames.bind(this)]),
         'email': new FormControl(null, [Validators.required, Validators.email]),
         'gender': new FormControl('male')
       }),
@@ -35,6 +37,14 @@ export class ReactiveFormComponent implements OnInit {
 
   getHobbiesControls() {
     return (this.userForm.get("hobbies") as FormArray).controls;
+  }
+
+  checkForbiddenNames(control: FormControl): { [s: string]: boolean } {
+    if (this.forbiddenUserName.indexOf(control.value) !== -1) {
+      return { "nameIsForbidden": true };
+    }
+
+    return { "nameIsForbidden": false };
   }
 
 }
