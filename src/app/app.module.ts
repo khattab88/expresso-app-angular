@@ -40,6 +40,7 @@ import { RecipeStartComponent } from './angular-course/recipe-app/recipes/start/
 import { RecipeEditorComponent } from './angular-course/recipe-app/recipes/editor/editor.component';
 import { TemplateFormComponent } from './angular-course/forms/template-form/template-form.component';
 import { ReactiveFormComponent } from './angular-course/forms/reactive-form/reactive-form.component';
+import { CrudComponent } from './angular-course/crud/crud.component';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { ReactiveFormComponent } from './angular-course/forms/reactive-form/reac
     RecipeStartComponent,
     RecipeEditorComponent,
     TemplateFormComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    CrudComponent
   ],
   imports: [
     BrowserModule,
