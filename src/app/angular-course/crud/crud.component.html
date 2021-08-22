@@ -24,7 +24,14 @@
             <button class="btn btn-success">Fetch Posts</button>
             <span> | </span>
             <button class="btn btn-default">Clear Posts</button>
-            <p class="help-block" *ngIf="!posts.length">No posts available!</p>
+            
+            <p class="help-block" *ngIf="posts.length < 1">No posts available!</p>
+            <ul class="list-group" style="margin-top: 1rem;" *ngIf="posts.length >= 1">
+                <li class="list-group-item" *ngFor="let post of posts">
+                    <h4>{{ post.title }}</h4>
+                    <p>{{ post.content }}</p>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
