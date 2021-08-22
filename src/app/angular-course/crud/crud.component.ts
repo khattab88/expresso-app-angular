@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { map } from "rxjs/operators";
 
 import { Post } from './post.model';
+import { PostService } from './post-service';
 
 @Component({
   selector: 'app-crud',
@@ -13,11 +14,10 @@ import { Post } from './post.model';
 export class CrudComponent implements OnInit {
   @ViewChild("postForm") postForm: NgForm;
 
-  private apiUrl = "https://winngo-6c09e.firebaseio.com/posts.json";
-  posts: Post[] = [];
   isLoading = false;
+  posts: Post[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private postService: PostService) { }
 
   ngOnInit(): void {
     this.fetchPosts();
@@ -25,35 +25,18 @@ export class CrudComponent implements OnInit {
 
   onCreatePost() {
     // console.log(this.postForm.value);
+    const postData = this.postForm.value as Post;
 
-    const postData = this.postForm.value;
-    this.http.post<Post>(
-      this.apiUrl, postData)
-      .subscribe(Response => {
-        console.log(Response);
-      });
+    this.postService.createPost(postData.title, postData.content);
 
     this.postForm.reset();
   }
 
-  private fetchPosts() {
+  fetchPosts() {
     this.isLoading = true;
 
-    return this.http
-      .get<{[key: string]: Post}>(this.apiUrl)
-      .pipe(
-        map(data => {
-          const allPosts: Post[] = [];
-          for (const key in data) {
-            if (data.hasOwnProperty(key)) {
-              allPosts.push({ ...data[key], id: key })
-            }
-          }
-          return allPosts;
-        })
-      )
+    this.postService.fetchPosts()
       .subscribe(posts => {
-        // console.log(posts);
         this.isLoading = false;
         this.posts = posts;
       });
