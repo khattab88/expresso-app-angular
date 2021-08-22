@@ -25,13 +25,14 @@
             <span> | </span>
             <button class="btn btn-default">Clear Posts</button>
             
-            <p class="help-block" *ngIf="posts.length < 1">No posts available!</p>
-            <ul class="list-group" style="margin-top: 1rem;" *ngIf="posts.length >= 1">
+            <p class="help-block" *ngIf="posts.length < 1 && !isLoading">No posts available!</p>
+            <ul class="list-group" style="margin-top: 1rem;" *ngIf="posts.length >= 1 && !isLoading">
                 <li class="list-group-item" *ngFor="let post of posts">
                     <h4>{{ post.title }}</h4>
                     <p>{{ post.content }}</p>
                 </li>
             </ul>
+            <p *ngIf="isLoading">Loading...</p>
         </div>
     </div>
 </div>

@@ -15,6 +15,7 @@ export class CrudComponent implements OnInit {
 
   private apiUrl = "https://winngo-6c09e.firebaseio.com/posts.json";
   posts: Post[] = [];
+  isLoading = false;
 
   constructor(private http: HttpClient) { }
 
@@ -36,6 +37,8 @@ export class CrudComponent implements OnInit {
   }
 
   private fetchPosts() {
+    this.isLoading = true;
+
     return this.http
       .get<{[key: string]: Post}>(this.apiUrl)
       .pipe(
@@ -50,7 +53,8 @@ export class CrudComponent implements OnInit {
         })
       )
       .subscribe(posts => {
-        console.log(posts);
+        // console.log(posts);
+        this.isLoading = false;
         this.posts = posts;
       });
   }
