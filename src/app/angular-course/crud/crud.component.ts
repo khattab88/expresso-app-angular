@@ -3,9 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { map } from "rxjs/operators";
 
-class Post {
-  constructor(public title: any, public content: any) { }
-}
+import { Post } from './post.model';
 
 @Component({
   selector: 'app-crud',
@@ -16,7 +14,7 @@ export class CrudComponent implements OnInit {
   @ViewChild("postForm") postForm: NgForm;
 
   private apiUrl = "https://winngo-6c09e.firebaseio.com/posts.json";
-  posts = [];
+  posts: Post[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -28,7 +26,7 @@ export class CrudComponent implements OnInit {
     // console.log(this.postForm.value);
 
     const postData = this.postForm.value;
-    this.http.post(
+    this.http.post<Post>(
       this.apiUrl, postData)
       .subscribe(Response => {
         console.log(Response);
@@ -38,19 +36,22 @@ export class CrudComponent implements OnInit {
   }
 
   private fetchPosts() {
-    this.http.get(this.apiUrl)
-      // .pipe(map(data => {
-      //   const allPosts = [];
-      //   for (const key in data) {
-      //     if (data.hasOwnProperty(key)) {
-      //       allPosts.push({...data[key], id: key})
-      //     }
-      //   }
-      //   return allPosts;
-      // }))
-      .subscribe(response => {
-        console.log(response);
-        // this.posts = response;
+    return this.http
+      .get<{[key: string]: Post}>(this.apiUrl)
+      .pipe(
+        map(data => {
+          const allPosts: Post[] = [];
+          for (const key in data) {
+            if (data.hasOwnProperty(key)) {
+              allPosts.push({ ...data[key], id: key })
+            }
+          }
+          return allPosts;
+        })
+      )
+      .subscribe(posts => {
+        console.log(posts);
+        this.posts = posts;
       });
   }
 
