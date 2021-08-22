@@ -27,7 +27,10 @@ export class CrudComponent implements OnInit {
     // console.log(this.postForm.value);
     const postData = this.postForm.value as Post;
 
-    this.postService.createPost(postData.title, postData.content);
+    this.postService.createPost(postData.title, postData.content)
+      .subscribe(() => {
+        this.fetchPosts();
+      });
 
     this.postForm.reset();
   }
@@ -39,6 +42,13 @@ export class CrudComponent implements OnInit {
       .subscribe(posts => {
         this.isLoading = false;
         this.posts = posts;
+      });
+  }
+
+  onClearPosts() {
+    this.postService.deletePosts()
+      .subscribe(() => {
+        this.posts = [];
       });
   }
 

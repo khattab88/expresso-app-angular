@@ -13,10 +13,7 @@ export class PostService {
     createPost(title: string, content: string) {
         const post: Post = { title, content };
 
-        this.http.post<Post>(this.apiUrl, post)
-            .subscribe(Response => {
-                console.log(Response);
-        });
+        return this.http.post<Post>(this.apiUrl, post);
     }
 
     fetchPosts() {
@@ -32,6 +29,10 @@ export class PostService {
                     }
                     return allPosts;
                 })
-            );
+        );
+    }
+
+    deletePosts() {
+        return this.http.delete(this.apiUrl);
     }
 }
