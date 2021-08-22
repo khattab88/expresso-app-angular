@@ -78,7 +78,8 @@ import { CrudComponent } from './angular-course/crud/crud.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
   ],
   providers: [
     LogService,
