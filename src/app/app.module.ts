@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
+import { StoreModule } from "@ngrx/store";
+
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -41,6 +43,7 @@ import { RecipeEditorComponent } from './angular-course/recipe-app/recipes/edito
 import { TemplateFormComponent } from './angular-course/forms/template-form/template-form.component';
 import { ReactiveFormComponent } from './angular-course/forms/reactive-form/reactive-form.component';
 import { CrudComponent } from './angular-course/crud/crud.component';
+import { ShoppingListReducer } from './angular-course/recipe-app/store/reducers/shopping-list.reducer';
 
 
 @NgModule({
@@ -79,6 +82,7 @@ import { CrudComponent } from './angular-course/crud/crud.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    // StoreModule.forRoot({ shoppingList: ShoppingListReducer }),
     AppRoutingModule,
   ],
   providers: [
