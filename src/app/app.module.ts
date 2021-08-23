@@ -44,6 +44,7 @@ import { TemplateFormComponent } from './angular-course/forms/template-form/temp
 import { ReactiveFormComponent } from './angular-course/forms/reactive-form/reactive-form.component';
 import { CrudComponent } from './angular-course/crud/crud.component';
 import { ShoppingListReducer } from './angular-course/recipe-app/store/reducers/shopping-list.reducer';
+import { reducers } from './angular-course/recipe-app/store/reducers';
 
 
 @NgModule({
@@ -82,7 +83,7 @@ import { ShoppingListReducer } from './angular-course/recipe-app/store/reducers/
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    // StoreModule.forRoot({ shoppingList: ShoppingListReducer }),
+    StoreModule.forRoot(reducers),
     AppRoutingModule,
   ],
   providers: [
